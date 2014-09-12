@@ -1,4 +1,4 @@
-var five = require("johnny-five"),
+var five = require('johnny-five'),
     board, lcd;
 
 var rows = 4,
@@ -6,16 +6,16 @@ var rows = 4,
 
 board = new five.Board();
 
-board.on("ready", function() {
+board.on('ready', function() {
 
-    lcd = new five.LCD({
     // LCD pin name  RS  EN  DB4 DB5 DB6 DB7
+    lcd = new five.LCD({
         pins: [4, 5, 10, 11, 12, 13],
         rows: rows,
         cols: cols
     });
 
-    lcd.on("ready", function() {
+    lcd.on('ready', function() {
 
         var frame = 1,
           col = 0,
@@ -23,8 +23,8 @@ board.on("ready", function() {
 
         var delay = 300;
 
-        lcd.useChar("runninga");
-        lcd.useChar("runningb");
+        lcd.useChar('runninga');
+        lcd.useChar('runningb');
 
         var codes = [
             0x41,0xa0,0x42,0xa1,0xe0,0x45,0xa3,0xa4,0xa5,0xa6,0x4b,
