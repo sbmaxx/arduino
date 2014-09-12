@@ -4,6 +4,8 @@ var five = require('johnny-five'),
 var rows = 4,
     cols = 20;
 
+var SECOND = 1000;
+
 board = new five.Board();
 
 board.on('ready', function() {
@@ -62,10 +64,10 @@ board.on('ready', function() {
                         lcdPrint(' 1 ');
                         setTimeout(function() {
                             run(n);
-                        }, 1000);
-                    }, 1000);
-                }, 1000);
-            }, 2000);
+                        }, SECOND);
+                    }, SECOND);
+                }, SECOND);
+            }, SECOND * 2);
             // через минуту новый круг
             setTimeout(function() {
                 if (timer) {
@@ -73,7 +75,7 @@ board.on('ready', function() {
                 }
                 laps++;
                 marathon(n + 1);
-            }, delay * rows * cols + 5000);
+            }, delay * rows * cols + SECOND * 5);
         }
 
         function run(lap) {
