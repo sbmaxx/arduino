@@ -23,11 +23,6 @@ board.on('ready', function() {
           col = 0,
           row = 0;
 
-        var delay = 300;
-
-        lcd.useChar('runninga');
-        lcd.useChar('runningb');
-
         var codes = [
             0x41,0xa0,0x42,0xa1,0xe0,0x45,0xa3,0xa4,0xa5,0xa6,0x4b,
             0xa7,0x4d,0x48,0x4f,0xa8,0x50,0x43,0x54,0xa9,0xaa,0x58,
@@ -37,6 +32,8 @@ board.on('ready', function() {
             0xc0,0xc1,0xe6,0xc2,0xc3,0xc4,0xc5,0xc6,0xc7,0xa2,0xb5
         ];
 
+        lcd.clear().cursor(row, col).print('TEST');
+
         var chars = [
             'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ь', 'Ы', 'Ъ', 'Э', 'Ю', 'Я',
             'а', 'б', 'в', 'г', 'д', 'е', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ь', 'ы', 'ъ', 'э', 'ю', 'я',
@@ -44,56 +41,6 @@ board.on('ready', function() {
         ];
 
         lcd.clear();
-        lcdPrint('Хуястя');
-
-        var laps = 0;
-        var timer;
-
-        // погнали
-        marathon(0);
-
-        function marathon(n) {
-            lcd.clear();
-               lcdPrint('ОЛоло');
-            // govnokod
-            setTimeout(function() {
-                lcdPrint(' 3 ');
-                setTimeout(function() {
-                    lcdPrint(' 2 ');
-                    setTimeout(function() {
-                        lcdPrint(' 1 ');
-                        setTimeout(function() {
-                            run(n);
-                        }, SECOND);
-                    }, SECOND);
-                }, SECOND);
-            }, SECOND * 2);
-            // через минуту новый круг
-            setTimeout(function() {
-                if (timer) {
-                    clearTimeout(timer);
-                }
-                laps++;
-                marathon(n + 1);
-            }, delay * rows * cols + SECOND * 5);
-        }
-
-        function run(lap) {
-            lcd.clear().cursor(row, col).print(':running' + (++frame % 2 === 0 ? 'a' : 'b') + ':');
-
-            if (++col === lcd.cols) {
-                col = 0;
-
-                if (++row === lcd.rows) {
-                    row = 0;
-                }
-            }
-            if (lap === laps) {
-                timer = setTimeout(function() {
-                    run(lap);
-                }, delay);
-            }
-        }
 
         function lcdPrint(str) {
             str = '' + str;
