@@ -435,7 +435,10 @@ LCD.BITMODE[8] = 0x10;
 
 LCD.LINE = [];
 LCD.LINE[1] = 0x00;
-LCD.LINE[2] = 0x08;
+LCD.LINE[2] = 0x40; // 0x08
+LCD.LINE[3] = 0x14;
+LCD.LINE[3] = 0x54;
+// 0x00, 0x40, 0x14, 0x54
 // TODO: Support for >2 lines
 // 1 & 2
 
