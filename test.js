@@ -44,7 +44,7 @@ board.on('ready', function() {
         ];
 
         lcd.clear();
-        lcdPrint('Привет!');
+        lcdPrint('Хуястя');
 
         var laps = 0;
         var timer;
@@ -54,7 +54,7 @@ board.on('ready', function() {
 
         function marathon(n) {
             lcd.clear();
-            lcdPrint('Побежали?');
+               lcdPrint('ОЛоло');
             // govnokod
             setTimeout(function() {
                 lcdPrint(' 3 ');

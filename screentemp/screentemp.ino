@@ -40,15 +40,14 @@ void loop()
   float r1 = voltage / (VIN - voltage);
   float temperature = 1./( 1./(TERMIST_B)*log(r1)+1./(25. + 273.) ) - 273;
 
-//  lcd.clear();
-//  lcd.print("Температура: ");
-//  lcd.print(temperature);
+  lcd.clear();
+  lcd.print("Температура: ");
+  lcd.print(temperature);
 
   // pin, freq, duration
 //  tone(BUZZER, 3500, 2000);
 //  delay(2000);
 //  noTone(BUZZER);
-
 
   // send data only when you receive data:
   if (Serial.available() > 0) {

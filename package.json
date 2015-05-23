@@ -19,6 +19,7 @@
   "dependencies": {
     "johnny-five": "^0.8.9",
     "lodash": "^2.4.1",
+    "restler": "^3.2.2",
     "serialport": "^1.4.6"
   }
 }
