@@ -82,6 +82,8 @@ board.on("ready", function() {
 
   lcd.on("ready", function() {
       lcd.clear().cursor(0, 0);
-      lcdPrint("OLOLO, привет");
+      setInterval(function() {
+          lcdPrint((new Date()).toGMTString());
+      }, 1000);
   });
 });
