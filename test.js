@@ -40,8 +40,6 @@ board.on('ready', function() {
             'Ё', 'ё'
         ];
 
-        lcd.clear();
-
         function lcdPrint(str) {
             str = '' + str;
             var char;
